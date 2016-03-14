@@ -150,6 +150,18 @@ function CheckMod(pn,mod) return mod and GAMESTATE:PlayerIsUsingModifier(pn,mod)
 function SummaryBranch() ForceSongAndSteps() if not scoreIndex then scoreIndex = 1 end if scoreIndex <= table.getn(AllScores) then return ScreenList('Summary') else scoreIndex = 1 return ScreenList('Ending') end end
 function Clock(val) local t = GlobalClock:GetSecsIntoEffect() if val then t = t - val end return t end
 function MusicClock() return Screen():GetSecsIntoEffect() end
+function string:split(delimiter)
+	local result = { }
+	local from  = 1
+	local delim_from, delim_to = string.find( self, delimiter, from  )
+	while delim_from do
+		table.insert( result, string.sub( self, from , delim_from-1 ) )
+		from  = delim_to + 1
+		delim_from, delim_to = string.find( self, delimiter, from  )
+	end
+	table.insert( result, string.sub( self, from  ) )
+	return result
+end
 
 --------------------------------
 -- BGAnimation Functions
@@ -557,6 +569,11 @@ function LoadFromProfile()
 		if vocalize and Profile(pn).Voice then vocalize[pn] = Profile(pn).Voice end
 		LoadFloatFromProfile(pn,'Mini',t)
 		if t.Mods.Cover then ApplyMod('cover',pn) end
+                if t.Mods.Perspective then ApplyMod(t.Mods.Perspective,pn) end
+                if t.Mods.NoteSkin then ApplyMod(t.Mods.NoteSkin,pn) end
+                if t.Mods.SpeedNumber then modSpeed[pn] = t.Mods.SpeedNumber end
+                if t.Mods.SpeedType == "C" then modType[pn] = "C"
+                elseif t.Mods.SpeedType == "x" then modType[pn] = "x" end
 	end end
 end
 
@@ -575,6 +592,13 @@ function SaveToProfile()
 		if vocalize then Profile(pn).Voice = vocalize[pn] end
 		t.Mods.JudgmentFont = judgmentFontList[ModCustom.JudgmentFont[pn]]
 		t.Mods.Mini = OptionFromEvalPlayerOptions(pn,'mini')
+                local s = string.lower(Screen():GetChild('PlayerOptionsP'..pn):GetText())
+                local mods = string.split(s,", ")
+                local len = table.getn(mods)
+                t.Mods.Perspective = mods[len-1]
+                t.Mods.NoteSkin = mods[len]
+                t.Mods.SpeedType = modType[pn]
+                t.Mods.SpeedNumber = modSpeed[pn]
 		GhostData(pn,'Compress')
 	end end
 end
