@@ -6,15 +6,15 @@
 	> <children>
 		<Layer Type="BitmapText" Text="Total Songs Played" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="y,-70+20*0" />
 		<Layer Type="BitmapText" Text="@PROFILEMAN:GetProfile(PLAYER_1):GetTotalNumSongsPlayed()" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.7'" OnCommand="y,-70+20*1" />
-		<Layer Type="BitmapText" Text="Quads" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="y,10+20*-1" />		
-		<Layer Type="BitmapText" Text="@PROFILEMAN:GetProfile(PLAYER_1):GetTotalStepsWithTopGrade(st,1,0)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*0" />
-		<Layer Type="BitmapText" Text="@PROFILEMAN:GetProfile(PLAYER_1):GetTotalStepsWithTopGrade(st,2,0)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*1" />
-		<Layer Type="BitmapText" Text="@PROFILEMAN:GetProfile(PLAYER_1):GetTotalStepsWithTopGrade(st,3,0)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*2" />
-		<Layer Type="BitmapText" Text="@PROFILEMAN:GetProfile(PLAYER_1):GetTotalStepsWithTopGrade(st,4,0)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*3" />
-		<Layer Type="BitmapText" Text="@DifficultyToThemedString(DIFFICULTY_EASY)" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_EASY) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*0" />
-		<Layer Type="BitmapText" Text="@DifficultyToThemedString(DIFFICULTY_MEDIUM)" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_MEDIUM) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*1" />
-		<Layer Type="BitmapText" Text="@DifficultyToThemedString(DIFFICULTY_HARD)" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_HARD) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*2" />
-		<Layer Type="BitmapText" Text="@DifficultyToThemedString(DIFFICULTY_CHALLENGE)" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_CHALLENGE) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*3" />
+		<Layer Type="BitmapText" Text="Stars" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="y,10+20*-1" />		
+		<Layer Type="BitmapText" Text="@GetNumStars(PLAYER_1,st,0)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*0" />
+		<Layer Type="BitmapText" Text="@GetNumStars(PLAYER_1,st,1)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*1" />
+		<Layer Type="BitmapText" Text="@GetNumStars(PLAYER_1,st,2)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*2" />
+		<Layer Type="BitmapText" Text="@GetNumStars(PLAYER_1,st,GRADE_TIER04)" File="_misobold small" InitCommand="@'diffuse,' .. PlayerColor(PLAYER_1) .. ';ShadowLength,0;zoom,0.5'" OnCommand="x,20;y,10+20*3" />
+		<Layer Type="BitmapText" Text="Quads" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_EASY) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*0" />
+		<Layer Type="BitmapText" Text="Triples" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_MEDIUM) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*1" />
+		<Layer Type="BitmapText" Text="Doubles" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_HARD) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*2" />
+		<Layer Type="BitmapText" Text="Single" File="_misobold small" InitCommand="@'diffuse,' .. DifficultyColor(DIFFICULTY_CHALLENGE) .. ';horizalign,right;ShadowLength,0;zoom,0.5'" OnCommand="x,-5;y,10+20*3" />
 	</children> </Layer>
 
 	<Layer Type="ActorFrame"

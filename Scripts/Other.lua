@@ -249,6 +249,18 @@ function GameState:PlayerDifficulty( pn )
 	end
 end
 
+function GetNumStars( pn, st, tier )
+	stars = 0
+	for i=0,3,1
+	do
+		stars = stars+PROFILEMAN:GetProfile(pn):GetTotalStepsWithTopGrade(st,i,tier)
+		SCREENMAN:SystemMessage(stars)
+	end
+
+	return stars
+end
+
+
 function Get2PlayerJoinMessage()
 	if not GAMESTATE:PlayersCanJoin() then return "" end
 	if GAMESTATE:GetCoinMode()==COIN_MODE_FREE then return "2 Player mode available" end
